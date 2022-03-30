@@ -1,0 +1,134 @@
+@font-face {
+  font-family: Crimson Text;
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.nuqayah.com/crimson/Crimson-Roman.ttf)
+}
+@font-face {
+  font-family: Crimson Text;
+  font-style: italic;
+  font-weight: 400;
+  src: url(https://fonts.nuqayah.com/crimson/Crimson-Italic.ttf)
+}
+@font-face {
+  font-family: Crimson Text;
+  font-style: normal;
+  font-weight: 700; /* So <b/strong> uses it */
+  src: url(https://fonts.nuqayah.com/crimson/Crimson-Semibold.ttf)
+}
+@font-face {
+  font-family: Crimson Text;
+  font-style: italic;
+  font-weight: 700; /* So <b/strong> uses it */
+  src: url(https://fonts.nuqayah.com/crimson/Crimson-SemiboldItalic.ttf)
+}
+
+@font-face {
+  font-family: Kitab;
+  font-display: block;
+  src: url(https://fonts.nuqayah.com/kitab-base.woff2?v3);
+  unicode-range: U+200?, U+60C, U+618-61B, U+61F, U+621-63A, U+640-655, U+65C, U+660-66C, U+670-671, U+6CC, U+6D4, U+6D6-6ED, U+8F0-8F3, U+FD3E-FD3F;
+}
+@font-face {
+  font-family: Kitab;
+  font-display: block;
+  src: url(https://fonts.nuqayah.com/kitab-base-b.woff2?v3);
+  font-weight: 700;
+  unicode-range: U+200?, U+60C, U+618-61B, U+61F, U+621-63A, U+640-655, U+65C, U+660-66C, U+670-671, U+6CC, U+6D4, U+6D6-6ED, U+8F0-8F3, U+FD3E-FD3F;
+}
+@font-face {
+  font-family: Kitab;
+  src: url(https://fonts.nuqayah.com/kitab-phrases.woff2?v3);
+  unicode-range:  U+E100-E103, U+FD3E-FD45, U+FD47-FD4F, U+FDF2, U+FDFA-FDFB, U+FDFD-FDFF;
+}
+@font-face {
+  font-family: Kitab;
+  font-weight: 700;
+  src: url(https://fonts.nuqayah.com/kitab-phrases.woff2?v3);
+  unicode-range:  U+E100-E103, U+FD3E-FD45, U+FD47-FD4F, U+FDF2, U+FDFA-FDFB, U+FDFD-FDFF;
+}
+
+:root {
+  --dark-blue: #1e76b0;
+  --light-blue: #2995dc;
+}
+
+html {font-size: 22px;}
+@media (max-width: 992px) { html {font-size: 21px;} }
+@media (max-width: 768px) { html {font-size: 18.5px;} }
+@media (max-width: 576px) { html {font-size: 17px;} }
+
+body {
+  color: #444;
+  overscroll-behavior-y: contain;
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0.2rem 0.5rem;
+}
+body > main {
+  min-height: 300px;
+}
+p.ar {
+  direction: rtl;
+}
+p + p {
+  margin: 1rem 0;
+}
+
+a, button {
+  -webkit-tap-highlight-color: transparent;
+}
+a {
+  text-decoration: none;
+  -webkit-user-drag: none;
+}
+a, a:visited, .btn-link {
+  color: var(--dark-blue);
+}
+
+.icon {
+  display: inline-block;
+  color: #444;
+  width: 1rem;
+  height: 1rem;
+  fill: currentColor;
+  font-size: 24px;
+  vertical-align: middle;
+}
+.icon-rarrow, .icon-larrow {
+  stroke: currentColor;
+  fill: none;
+  width: 1.5rem
+}
+
+/* request-indicator */
+@keyframes elastic-indicator {
+  0% {
+    left: 0;
+    right: 100%;
+  }
+  55% {
+    left: 0;
+    right: 0;
+  }
+  100% {
+    left: 100%;
+    right: 0;
+  }
+}
+.request-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+}
+.request-indicator.active:before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  background-color: #e3f2fd;
+  animation: elastic-indicator 2s infinite;
+}
